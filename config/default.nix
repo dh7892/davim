@@ -13,6 +13,8 @@
   # smart-splits or tmux integration
 
   plugins.nvim-tree.enable = true;
+  plugins.nvim-tree.updateFocusedFile.enable = true;
+  plugins.nvim-tree.updateFocusedFile.updateRoot = true;
   plugins.notify.enable = true;
   plugins.nix.enable = true;
   plugins.neoscroll.enable = true;
