@@ -20,7 +20,7 @@
   plugins.neoscroll.enable = true;
   keymaps = [
     {
-      action = "NvimTreeToggle";
+      action = "NvimTreeOpen";
       key = "<Leader>t";
       options.desc = "Open current folder in Nvim-tree";
     }
