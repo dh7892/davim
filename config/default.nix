@@ -1,11 +1,12 @@
 {
   # Import all your configuration modules here
-  imports = [ ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ];
+  imports = [ ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ];
   colorschemes.ayu.enable = true;
   globals.mapleader = ",";
   plugins = {
     tmux-navigator.enable = true;
     toggleterm.enable = true;
+    commentary.enable = true;
     # Possible plugins to try:
     #surround = extra motions for surrounding text
     #spider = moving by words works differently (e.g. sub-words)
@@ -28,6 +29,22 @@
       options = {
         silent = true;
         desc = "Toggle File Tree";
+      };
+    }
+    {
+      action = "<cmd>bnext<CR>";
+      key = "gt";
+      options = {
+        silent = true;
+        desc = "Next buffer";
+      };
+    }
+    {
+      action = "<cmd>bprev<CR>";
+      key = "gT";
+      options = {
+        silent = true;
+        desc = "Previous buffer";
       };
     }
   ];
