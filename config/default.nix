@@ -4,6 +4,7 @@
   colorschemes.ayu.enable = true;
   globals.mapleader = ",";
   plugins = {
+    floaterm.enable = true;
     tmux-navigator.enable = true;
     toggleterm.enable = true;
     commentary.enable = true;
