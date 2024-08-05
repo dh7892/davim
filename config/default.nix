@@ -8,6 +8,11 @@
     tmux-navigator.enable = true;
     toggleterm.enable = true;
     commentary.enable = true;
+    dap = {
+      enable = true;
+      extensions.dap-python.enable = true;
+
+    };
     # Possible plugins to try:
     #surround = extra motions for surrounding text
     #spider = moving by words works differently (e.g. sub-words)
