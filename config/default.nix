@@ -53,5 +53,14 @@
         desc = "Previous buffer";
       };
     }
+    {
+      action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+      key = "<leader>r";
+      options = {
+        silent = true;
+        desc = "Rename current symbol";
+      };
+    }
+
   ];
 }
