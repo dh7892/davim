@@ -27,8 +27,54 @@
     notify.enable = true;
     nix.enable = true;
     neoscroll.enable = true;
-};
- keymaps = [
+  };
+  extraConfigLua = ''
+  -- Command to toggle inline diagnostics
+vim.api.nvim_create_user_command(
+  'DiagnosticsToggleVirtualText',
+  function()
+    local current_value = vim.diagnostic.config().virtual_text
+    if current_value then
+      vim.diagnostic.config({virtual_text = false})
+    else
+      vim.diagnostic.config({virtual_text = true})
+    end
+  end,
+  {}
+)
+
+-- Command to toggle diagnostics
+vim.api.nvim_create_user_command(
+  'DiagnosticsToggle',
+  function()
+    local current_value = vim.diagnostic.is_disabled()
+    if current_value then
+      vim.diagnostic.enable()
+    else
+      vim.diagnostic.disable()
+    end
+  end,
+  {}
+)
+  '';
+
+  keymaps = [
+    {
+      action = "<cmd>DiagnosticsToggle<CR>";
+      key = "<leader>d";
+      options = {
+        silent = true;
+        desc = "Toggle Diagnistic info";
+      };
+    }
+    {
+      action = "<cmd>DiagnosticsToggleVirtualText<CR>";
+      key = "<leader>i";
+      options = {
+        silent = true;
+        desc = "Toggle Inline Diagnistic text";
+      };
+    }
     {
       action = "<cmd>NvimTreeToggle<CR>";
       key = "<leader>t";
