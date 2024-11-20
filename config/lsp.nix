@@ -5,9 +5,9 @@
       nixd.enable = true;
       pyright.enable = true;
       ruff.enable = true;
-      rust-analyzer.enable = true;
-      rust-analyzer.installCargo = true;
-      rust-analyzer.installRustc = true;
+      rust_analyzer.enable = true;
+      rust_analyzer.installCargo = true;
+      rust_analyzer.installRustc = true;
       gopls.enable = true;
     };
     keymaps.lspBuf = {
