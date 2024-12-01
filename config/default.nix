@@ -9,11 +9,12 @@
     tmux-navigator.enable = true;
     toggleterm.enable = true;
     commentary.enable = true;
-    rustaceanvim.enable = true;
+    rustaceanvim = {
+      enable = true;
+    };
     dap = {
       enable = true;
       extensions.dap-python.enable = true;
-
     };
     # Possible plugins to try:
     #surround = extra motions for surrounding text

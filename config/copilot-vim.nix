@@ -3,8 +3,7 @@
     enable = true;
     settings = {
       filetypes = {
-        "*" = false;
-        python = true;
+        "*" = true;
       };
     };
   };
