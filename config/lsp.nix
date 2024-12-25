@@ -1,7 +1,6 @@
 {
   plugins.lsp = {
     enable = true;
-    plugins.lspsaga.enable = true;
     servers = {
       nixd.enable = true;
       pyright.enable = true;

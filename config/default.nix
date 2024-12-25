@@ -10,6 +10,7 @@
     tmux-navigator.enable = true;
     toggleterm.enable = true;
     commentary.enable = true;
+    lspsaga.enable = true;
     dap = {
       enable = true;
       extensions.dap-python.enable = true;
