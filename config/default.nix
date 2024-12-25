@@ -111,7 +111,7 @@ vim.api.nvim_create_user_command(
     }
     {
       mode = "n";
-        key = "<leader>th";  # or whatever key you prefer
+        key = "<leader>h";  # or whatever key you prefer
         action = "function() vim.cmd('RustToggleInlayHints') end";
         options = {
           desc = "Toggle inlay hints";
