@@ -1,8 +1,10 @@
 {
-  rustacean-vim = {
+  rustaceanvim = {
     enable = true;
-    server = {
-        settings = {
+    settings = {
+        server = {
+          cmd = ["rustup" "run" "nightly" "rust-analyzer"];
+          default-settings = {
           rust-analyzer = {
             inlayHints = {
               bindingModeHints.enable = true;
@@ -17,5 +19,6 @@
           };
         };
       };
+    };
   };
 }
