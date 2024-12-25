@@ -1,17 +1,15 @@
 {
   # Import all your configuration modules here
-  imports = [ ./avante.nix ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ];
+  imports = [ ./avante.nix ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustacean-vim.nix ];
   colorschemes.ayu.enable = true;
   globals.mapleader = ",";
   plugins = {
     web-devicons.enable = true;
+    crates.enable = true;
     floaterm.enable = true;
     tmux-navigator.enable = true;
     toggleterm.enable = true;
     commentary.enable = true;
-    rustaceanvim = {
-      enable = true;
-    };
     dap = {
       enable = true;
       extensions.dap-python.enable = true;
@@ -109,6 +107,15 @@ vim.api.nvim_create_user_command(
         silent = true;
         desc = "Rename current symbol";
       };
+    }
+    {
+      mode = "n";
+        key = "<leader>th";  # or whatever key you prefer
+        action = "function() vim.cmd('RustToggleInlayHints') end";
+        options = {
+          desc = "Toggle inlay hints";
+          silent = true;
+        };
     }
 
   ];
