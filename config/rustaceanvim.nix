@@ -7,6 +7,7 @@
           default-settings = {
           rust-analyzer = {
             inlayHints = {
+              enable = true;
               bindingModeHints.enable = true;
               closureReturnTypeHints.enable = "always";
               discriminantHints.enable = "always";
