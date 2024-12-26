@@ -1,65 +1,44 @@
 {
-  # Import all your configuration modules here
   imports = [ ./avante.nix ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
-  colorschemes.ayu.enable = true;
-  globals.mapleader = ",";
-  plugins = {
-    web-devicons.enable = true;
-    crates.enable = true;
-    floaterm.enable = true;
-    tmux-navigator.enable = true;
-    toggleterm.enable = true;
-    commentary.enable = true;
-    lspsaga.enable = true;
-    dap = {
-      enable = true;
-      extensions.dap-python.enable = true;
+  # Import all your configuration modules here
+  config = {
+    colorschemes.ayu.enable = true;
+    globals.mapleader = ",";
+    options = {
+      number = true;
+      relativenumber = true;
+      scrolloff = 5;
+      sidescrolloff = 5;
     };
-    # Possible plugins to try:
-    #surround = extra motions for surrounding text
-    #spider = moving by words works differently (e.g. sub-words)
-    #statuscol = status column - I started some setup, but couldn't seem to get it working got a sub-module ready for it
-    # neoscroll
-    # noice
-    nvim-tree = {
-      enable = true;
-      updateFocusedFile.enable = true;
-      updateFocusedFile.updateRoot = true;
-    };
-    notify.enable = true;
-    nix.enable = true;
-    neoscroll.enable = true;
-  };
-  extraConfigLua = ''
-  -- Command to toggle inline diagnostics
-vim.api.nvim_create_user_command(
-  'DiagnosticsToggleVirtualText',
-  function()
-    local current_value = vim.diagnostic.config().virtual_text
-    if current_value then
-      vim.diagnostic.config({virtual_text = false})
-    else
-      vim.diagnostic.config({virtual_text = true})
-    end
-  end,
-  {}
-)
+    extraConfigLua = ''
+    -- Command to toggle inline diagnostics
+  vim.api.nvim_create_user_command(
+    'DiagnosticsToggleVirtualText',
+    function()
+      local current_value = vim.diagnostic.config().virtual_text
+      if current_value then
+        vim.diagnostic.config({virtual_text = false})
+      else
+        vim.diagnostic.config({virtual_text = true})
+      end
+    end,
+    {}
+  )
 
--- Command to toggle diagnostics
-vim.api.nvim_create_user_command(
-  'DiagnosticsToggle',
-  function()
-    local current_value = vim.diagnostic.is_disabled()
-    if current_value then
-      vim.diagnostic.enable()
-    else
-      vim.diagnostic.disable()
-    end
-  end,
-  {}
-)
-  '';
-
+  -- Command to toggle diagnostics
+  vim.api.nvim_create_user_command(
+    'DiagnosticsToggle',
+    function()
+      local current_value = vim.diagnostic.is_disabled()
+      if current_value then
+        vim.diagnostic.enable()
+      else
+        vim.diagnostic.disable()
+      end
+    end,
+    {}
+  )
+    '';
   keymaps = [
     {
       action = "<cmd>DiagnosticsToggle<CR>";
@@ -120,4 +99,34 @@ vim.api.nvim_create_user_command(
     }
 
   ];
+  plugins = {
+    web-devicons.enable = true;
+    crates.enable = true;
+    floaterm.enable = true;
+    tmux-navigator.enable = true;
+    toggleterm.enable = true;
+    commentary.enable = true;
+    lspsaga.enable = true;
+    lspsaga.lightbulb.enable = false;
+    dap = {
+      enable = true;
+      extensions.dap-python.enable = true;
+    };
+    # Possible plugins to try:
+    #surround = extra motions for surrounding text
+    #spider = moving by words works differently (e.g. sub-words)
+    #statuscol = status column - I started some setup, but couldn't seem to get it working got a sub-module ready for it
+    # neoscroll
+    # noice
+    nvim-tree = {
+      enable = true;
+      updateFocusedFile.enable = true;
+      updateFocusedFile.updateRoot = true;
+    };
+    notify.enable = true;
+    nix.enable = true;
+    neoscroll.enable = true;
+  };
+
+  };
 }
