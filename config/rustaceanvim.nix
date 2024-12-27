@@ -2,10 +2,10 @@
   plugins.rustaceanvim = {
     enable = true;
     settings = {
-        server = {
-          cmd = ["rustup" "run" "nightly" "rust-analyzer"];
-          default-settings = {
-          rust-analyzer = {
+      server = {
+        cmd = ["rust-analyzer"];
+        default_settings = {
+          "rust-analyzer" = {
             inlayHints = {
               enable = true;
               bindingModeHints.enable = true;
@@ -17,6 +17,7 @@
               typeHints.enable = true;
               chainingHints.enable = true;
             };
+
           };
         };
       };

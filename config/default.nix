@@ -2,7 +2,14 @@
   imports = [ ./avante.nix ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
   # Import all your configuration modules here
   config = {
-    colorschemes.ayu.enable = true;
+    colorschemes.ayu = {
+      enable = true;
+      settings.overrides = {
+        NonText = {
+          fg = "#5C5C5C"; bg = "NONE"; italic = true;
+        };
+      };
+    };
     globals.mapleader = ",";
     options = {
       number = true;
@@ -90,12 +97,12 @@
     }
     {
       mode = "n";
-        key = "<leader>h";  # or whatever key you prefer
-        action = "function() vim.cmd('RustToggleInlayHints') end";
-        options = {
-          desc = "Toggle inlay hints";
-          silent = true;
-        };
+      key = "<leader>h";
+      action = "<cmd>lua local enabled = vim.lsp.inlay_hint.is_enabled(); vim.lsp.inlay_hint.enable(not enabled)<CR>";
+      options = {
+        desc = "Toggle inlay hints";
+        silent = true;
+      };
     }
 
   ];
