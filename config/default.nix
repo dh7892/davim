@@ -32,6 +32,13 @@
     {}
   )
 
+  -- Debugging keymaps
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+
   -- Command to toggle diagnostics
   vim.api.nvim_create_user_command(
     'DiagnosticsToggle',
@@ -104,6 +111,43 @@
         silent = true;
       };
     }
+    {
+        mode = "n";
+        key = "<F5>";
+        action = "require('dap').continue";
+        lua = true;
+      }
+      {
+        mode = "n";
+        key = "<F10>";
+        action = "require('dap').step_over";
+        lua = true;
+      }
+      {
+        mode = "n";
+        key = "<F11>";
+        action = "require('dap').step_into";
+        lua = true;
+      }
+      {
+        mode = "n";
+        key = "<F12>";
+        action = "require('dap').step_out";
+        lua = true;
+      }
+      {
+        mode = "n";
+        key = "<Leader>b";
+        action = "require('dap').toggle_breakpoint";
+        lua = true;
+      }
+      # Optional: Toggle DAP UI
+      {
+        mode = "n";
+        key = "<Leader>u";
+        action = "require('dapui').toggle";
+        lua = true;
+      }
 
   ];
   plugins = {
@@ -118,6 +162,8 @@
     dap = {
       enable = true;
       extensions.dap-python.enable = true;
+      extensions.dap-ui.enable = true;
+      extensions.dap-virtual-text.enable = true;
     };
     # Possible plugins to try:
     #surround = extra motions for surrounding text

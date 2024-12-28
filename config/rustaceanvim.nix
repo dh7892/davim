@@ -1,7 +1,15 @@
+{ pkgs, ... }:
 {
   plugins.rustaceanvim = {
     enable = true;
     settings = {
+      dap = {
+        adapter = {
+          type = "executable";
+          name = "lldb";
+          command = "${pkgs.lldb_18}/bin/lldb-dap";
+        };
+      };
       server = {
         cmd = ["rust-analyzer"];
         default_settings = {
