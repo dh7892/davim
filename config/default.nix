@@ -1,5 +1,5 @@
 {
-  imports = [ ./avante.nix ./bufferline.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
+  imports = [ ./avante.nix ./bufferline.nix ./dap.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
   # Import all your configuration modules here
   config = {
     colorschemes.ayu = {
@@ -11,7 +11,7 @@
       };
     };
     globals.mapleader = ",";
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
       scrolloff = 5;
@@ -159,12 +159,6 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
     commentary.enable = true;
     lspsaga.enable = true;
     lspsaga.lightbulb.enable = false;
-    dap = {
-      enable = true;
-      extensions.dap-python.enable = true;
-      extensions.dap-ui.enable = true;
-      extensions.dap-virtual-text.enable = true;
-    };
     # Possible plugins to try:
     #surround = extra motions for surrounding text
     #spider = moving by words works differently (e.g. sub-words)
