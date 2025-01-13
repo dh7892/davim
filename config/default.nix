@@ -1,3 +1,7 @@
+{ pkgs, ... }:
+let
+  pounce = pkgs.callPackage ./pounce.nix { };
+in
 {
   imports = [ ./avante.nix ./bufferline.nix ./dap.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
   # Import all your configuration modules here
@@ -17,6 +21,7 @@
       scrolloff = 5;
       sidescrolloff = 5;
     };
+    extraPlugins = [ pounce ];
     extraConfigLua = ''
     -- Command to toggle inline diagnostics
   vim.api.nvim_create_user_command(
@@ -31,6 +36,9 @@
     end,
     {}
   )
+
+  -- Pounce keymaps
+vim.keymap.set('n', 's', '<cmd>Pounce<CR>')
 
   -- Debugging keymaps
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
