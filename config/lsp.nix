@@ -3,7 +3,18 @@
     enable = true;
     servers = {
       nixd.enable = true;
-      pyright.enable = true;
+      pyright = {
+  enable = true;
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true;
+        useLibraryCodeForTypes = true;
+        diagnosticMode = "workspace";
+          };
+        };
+      };
+    };
       ruff.enable = true;
       rust_analyzer.enable = false;
       rust_analyzer.installCargo = true;
