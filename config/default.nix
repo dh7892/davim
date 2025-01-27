@@ -1,6 +1,8 @@
 { pkgs, ... }:
 let
   pounce = pkgs.callPackage ./pounce.nix { };
+  venv-select = pkgs.callPackage ./venv-select.nix { };
+
 in
 {
   imports = [ ./avante.nix ./bufferline.nix ./dap.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
@@ -21,7 +23,7 @@ in
       scrolloff = 5;
       sidescrolloff = 5;
     };
-    extraPlugins = [ pounce ];
+    extraPlugins = [ pounce venv-select ];
     extraConfigLua = ''
     -- Command to toggle inline diagnostics
   vim.api.nvim_create_user_command(
