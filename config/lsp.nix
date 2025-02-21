@@ -26,7 +26,6 @@
       gD = "references";
       gd = "definition";
       gi = "implementation";
-      gt = "type_definition";
     };
   };
   plugins.lsp-format.enable = true;
