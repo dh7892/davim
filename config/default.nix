@@ -27,8 +27,8 @@ in
     extraConfigLua = ''
     -- Setup Venv Selector
     require('venv-selector').setup {name = ".venv"}
-    vim.keymape.set('n', '<Leader>vs', '<cmd>VenvSelect<CR>')
-    vim.keymape.set('n', '<Leader>vc', '<cmd>VenvSelectCached<CR>')
+    vim.keymap.set('n', '<Leader>vs', '<cmd>VenvSelect<CR>')
+    vim.keymap.set('n', '<Leader>vc', '<cmd>VenvSelectCached<CR>')
 
     -- Command to toggle inline diagnostics
   vim.api.nvim_create_user_command(
