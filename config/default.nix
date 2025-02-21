@@ -44,6 +44,9 @@ in
     {}
   )
 
+-- Terminal keymaps
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
+
   -- Pounce keymaps
 vim.keymap.set('n', 's', '<cmd>Pounce<CR>')
 
