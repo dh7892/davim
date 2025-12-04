@@ -89,6 +89,14 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
       };
     }
     {
+      action = "<cmd>Lspsaga code_action<CR>";
+      key = "<leader>c";
+      options = {
+        silent = true;
+        desc = "Code actions (imports, match arms, etc)";
+      };
+    }
+    {
       action = "<cmd>NvimTreeToggle<CR>";
       key = "<leader>t";
       options = {
@@ -158,6 +166,9 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
         key = "<Leader>b";
         action = "require('dap').toggle_breakpoint";
         lua = true;
+        options = {
+          desc = "Toggle breakpoint";
+        };
       }
       # Optional: Toggle DAP UI
       {
@@ -165,6 +176,9 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
         key = "<Leader>u";
         action = "require('dapui').toggle";
         lua = true;
+        options = {
+          desc = "Toggle DAP UI";
+        };
       }
 
   ];
