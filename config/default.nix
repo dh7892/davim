@@ -126,7 +126,7 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
       };
     }
     {
-      action = "require('telescope.builtin').find_files({ hidden = true, no_ignore = true })";
+      action = "function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end";
       key = "<leader>E";
       lua = true;
       options = {
