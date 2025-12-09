@@ -126,6 +126,15 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
       };
     }
     {
+      action = "require('telescope.builtin').find_files({ hidden = true, no_ignore = true })";
+      key = "<leader>E";
+      lua = true;
+      options = {
+        silent = true;
+        desc = "Telescope find all files (including hidden/ignored)";
+      };
+    }
+    {
       action = "<cmd>NvimTreeToggle<CR>";
       key = "<leader>t";
       options = {

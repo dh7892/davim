@@ -10,14 +10,6 @@
         action = "find_files";
 	options = {desc = "Telescope find files";};
       };
-      "<leader>E" = {
-        action = "find_files";
-        options = {
-          desc = "Telescope find all files (including hidden/ignored)";
-          hidden = true;
-          no_ignore = true;
-        };
-      };
       "<leader>g" = {
         action = "grep_string";
 	options = {desc = "Telescope grep string";};
