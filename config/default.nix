@@ -70,6 +70,35 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
     end,
     {}
   )
+
+  -- Telescope: Custom action to toggle hidden files
+  local telescope_actions = require('telescope.actions')
+  local telescope_action_state = require('telescope.actions.state')
+
+  local toggle_hidden = function(prompt_bufnr)
+    local picker = telescope_action_state.get_current_picker(prompt_bufnr)
+    local finder = picker.finder
+
+    -- Toggle the options
+    finder.hidden = not finder.hidden
+    finder.no_ignore = not finder.no_ignore
+
+    -- Refresh the picker
+    picker:refresh(finder, { reset_prompt = false })
+  end
+
+  require('telescope').setup({
+    defaults = {
+      mappings = {
+        i = {
+          ['<C-h>'] = toggle_hidden,
+        },
+        n = {
+          ['<C-h>'] = toggle_hidden,
+        },
+      },
+    },
+  })
     '';
   keymaps = [
     {
