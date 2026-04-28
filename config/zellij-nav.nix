@@ -18,8 +18,12 @@ in
       -- Zellij-nav: vim-aware pane navigation for Zellij
       -- When inside Zellij, Ctrl-h/j/k/l moves between Neovim splits first,
       -- then falls through to Zellij panes at the edges.
-      -- When inside tmux, tmux-navigator handles this instead.
       require("zellij-nav").setup()
+
+      vim.keymap.set("n", "<C-h>", "<cmd>ZellijNavigateLeftTab<cr>", { silent = true, desc = "Navigate left (vim split or zellij pane)" })
+      vim.keymap.set("n", "<C-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "Navigate down (vim split or zellij pane)" })
+      vim.keymap.set("n", "<C-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "Navigate up (vim split or zellij pane)" })
+      vim.keymap.set("n", "<C-l>", "<cmd>ZellijNavigateRightTab<cr>", { silent = true, desc = "Navigate right (vim split or zellij pane)" })
     '';
   };
 }
