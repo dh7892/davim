@@ -224,7 +224,8 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
     web-devicons.enable = true;
     crates.enable = true;
     floaterm.enable = true;
-    tmux-navigator.enable = true;
+    # tmux-navigator disabled in favour of zellij-nav.nvim (see zellij-nav.nix)
+    # tmux-navigator.enable = true;
     toggleterm.enable = true;
     commentary.enable = true;
     lspsaga.enable = true;
