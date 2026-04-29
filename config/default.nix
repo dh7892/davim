@@ -5,7 +5,7 @@ let
 
 in
 {
-  imports = [ ./avante.nix ./bufferline.nix ./dap.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ./zellij-nav.nix ];
+  imports = [ ./avante.nix ./bufferline.nix ./dap.nix ./telescope.nix ./which-key.nix ./treesitter.nix ./lsp.nix ./copilot-vim.nix ./rustaceanvim.nix ];
   # Import all your configuration modules here
   config = {
     colorschemes.ayu = {
